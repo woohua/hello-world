@@ -80,7 +80,21 @@ FROM BSEMPMS WHERE EMP_NO=’SCOTT’`;
             * MAXSIZE     存储单元大小
             * FREELISTS   自由列表（改善实时系统段的插入）
             * FREELIST GROUPS  改善空间分配和释放，避免段元数据    跨实例传输
-            
+
+*  ###PL/SQL特殊结构
+    > *  %TYPE  `字段名%type`声明变量为特定字段类型
+    > *  %ROWTYPE   `表名%rowtype`声明变量为表记录类型
+    > *  varray     `varrar(5)`声明变量为有序数组类型   
+        数组中的元素使用前必须在declare中初始化，或者使用extend() 
+>   * declare
+a int_array := int_array(null); 
+begin  
+  a(1) := 3;
+  a.extend();
+  a(2) := 4;
+  a.extend();
+  a(3) := 5;`
+ 
 *  ### 数据处理方式
     *  OLTP(on-line transaction processing)联机事务处理，实时系统（金融业）
     *  OLAP(On-Line Analytical Processing)联机分析处理，分析决策（企业内部）
