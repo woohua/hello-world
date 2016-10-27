@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            //获取选中项
+            $('#huoqu2').click(function () {
+                $('#show').html("");
+                $("input[name='abc']:checked").each(function () {
+                    //alert(this.value);
+                    $('#show').append(this.value + "  ");
+                });
+            });
+
+
+            //全选/取消全选
+            $('#quanxuan').toggle(function () {
+                $("input[name='abc']").attr("checked", 'true');
+            }, function () {
+                $("input[name='abc']").removeAttr("checked");
+            });
+
+
+            //反选
+            $('#fanxuan').click(function () {
+                $("input[name='abc']").each(function () {
+                    if ($(this).attr("checked")) {
+                        $(this).removeAttr("checked");
+                    } else {
+                        $(this).attr("checked", 'true');
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <input type="checkbox" name="abc" value="一年级" id="in1" checked="checked" /><label for="in1">一年级</label>
+            <input type="checkbox" name="abc" value="二年级" id="in2" /><label for="in2">二年级</label>
+            <input type="checkbox" name="abc" value="三年级" id="in3" /><label for="in3">三年级</label>
+            <input type="checkbox" name="abc" value="四年级" id="in4" /><label for="in4">四年级</label>
+            <input type="checkbox" name="abc" value="五年级" id="in5" /><label for="in5">五年级</label>
+            <input type="checkbox" name="abc" value="六年级" id="in6" /><label for="in6">六年级</label>
+            <input type="checkbox" name="abc" value="七年级" id="in7" /><label for="in7">七年级</label>
+            <input type="checkbox" name="abc" value="八年级" id="in8" /><label for="in8">八年级</label>
+        </div>
+        <br />
+        <input type="button" id="quanxuan" value="全选/取消全选" /><br>
+        <input type="button" id="fanxuan" value="反选" />
+        <input type="button" id="huoqu2" value="获取选中项" />
+       <br />
+        选中项： <div id="show">
+
+        </div>
+    </form>
+</body>
+</html>

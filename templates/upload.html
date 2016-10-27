@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to LanDisk!</h1>
+<br/>
+<p>
+  Click
+  <a href ="/logout">here</a>
+  to logout.
+</p>
+{% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+ {% if space %}
+<p class="space"> <strong>Space:</strong>
+  {{ space }}
+</p>
+{% endif %}
+<br>
+<div class="form-actions">
+  <form action="" method=post enctype=multipart/form-data>
+    <input type=file name=file multiple="true" >
+    <input type=submit class="btn btn-primary" value="Upload">
+    <a href ="/upload">
+      <button type="button" class="btn btn-primary">Refresh</button>
+    </a>
+    <a href ="/newfolder">
+      <button type="button" class="btn btn-primary">New File</button>
+    </a>
+  </form>
+
+  <form action="" method=post enctype=multipart/form-data>
+    <div class="well">
+      <a href ="/preview">
+        <button type="button" class="btn btn-secondary">Preview</button>
+      </a>
+      <input type="submit" name="submit" class="btn btn-secondary" value="Download">
+      <input type="submit" name="submit" class="btn btn-secondary" value="Delete">
+      <!--input type="submit" name="submit" class="btn btn-secondary" value="Share"-->
+      {%for i in files %}
+      {%if i !='package.zip'%}
+    <div class="smdiv well well-sm">
+      <h4>
+        <a href='/uploads/{{i}}'>
+          <input id="{{i}}" name="multiplefiles" type="checkbox" value="{{i}}">{{i}}</a>
+        <!--<span class="label label-default label-pill pull-xs-right">size of file</span>
+      -->
+    </h4>
+  </div>
+   {%endif%}
+   {% endfor %}
+</div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="top-pad">
+
+    <div class="well">
+        <h3>Register for LanDisk!</h3>
+        <br>
+        <form method='POST' action='' >
+            <div class="control-group">
+                <div class="controls">
+                    <p>
+                        <h4>
+                            Username
+                            <input type ='text' name = 'username' placeholder="username" minlength=3 maxlength=8 onkeyup=" value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+                        </h4>
+
+                    </p>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <p>
+                        <h4>
+                            Password
+                            <input type ='password' name = 'passwd' placeholder="password" maxlength=11 onkeyup=" value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+                        </h4>
+                    </p>
+                    <button type="submit" class="btn btn-primary" >Register</button>
+                    <a href ="/login">
+                        <p>Already registered? go to sign in!</p>
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+                                {% for message in get_flashed_messages() %}
+                                     {{ message }}
+                            {% endfor %}
+</div>
+{% endblock %}

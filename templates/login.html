@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="top-pad">
+  <div class="well">
+    <form method='POST' action='' >
+      <div class="control-group">
+        <div class="controls">
+          <h3>LOG IN TO LanDisk</h3>
+          <br>
+
+          <p>
+            <h4>
+              Username
+              <input type ='text' id='username' placeholder="Username" name = 'username' maxlength=8 onkeyup=" value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+            </h4>
+          </p>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <p>
+            <h4>
+              Password
+              <input type ='password' placeholder="Password" name = 'passwd'  maxlength=11 onkeyup=" value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+            </h4>
+          </p>
+        </div>
+      </div>
+      <div align="center">
+        <button type="submit" class="btn btn-primary" name = 'login'>Sign In</button>
+        <a href ="/register">
+          <button type="button" class="btn btn-primary">Register</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

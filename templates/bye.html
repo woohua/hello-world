@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="top-pad">
+	<div class="well">
+		<h1>Thanks for use LanDisk</h1>
+		<br/>
+		<p>
+			<h3>
+				Click
+				<a href ="/">here</a>
+				to go home.
+			</h3>
+		</p>
+		{% for message in get_flashed_messages() %}
+		{{ message }}
+	  	{% endfor %}
+	</div>
+</div>
+{% endblock %}

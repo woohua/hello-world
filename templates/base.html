@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LanDisk</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet"></head>
+<body>
+<style>
+body {
+    background-image: url("static/2.jpg");
+    background-color: #cccccc;
+}
+</style>
+  <div class="tophead navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <h3>
+          <a class="navbar-brand" href="/">LanDisk</a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <!-- child template -->
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    {% block content %}{% endblock %}
+    <!-- errors -->
+    {% if error %}
+    <p class="error"> <strong>Error:</strong>
+      {{ error }}
+    </p>
+    {% endif %}
+    <!-- messages -->
+    <!--{% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}-->
+  </div>
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script-->
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+  <div class="bottom navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <div class="bottom navbar-header">
+        <h3>
+          <a class="navbar-brand" href="/">LanDisk</a>
+        </h3>
+      </div>
+    </div>
+  </div>
+</html>

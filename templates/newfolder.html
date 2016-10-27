@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="top-pad ">
+    <div class="well">
+        <form method='POST' action='' >
+            <div class="control-group input-group input-group-lg">
+                <input type ='text' id='newfolder' placeholder="Folder Name" name = 'newfolder' maxlength=6 onkeyup=" value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+                <p>Up to six letters, digits or underscore</p>
+            </div>
+            <div align="control-group center">
+                <button type="submit" class="btn btn-primary">
+                    <h4>Create New Folder</h4>
+                </button>
+            </div>
+        </form>
+        <a href ="/upload">
+            <button type="button" class="btn btn-primary">Back</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
